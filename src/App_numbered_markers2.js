@@ -22,12 +22,10 @@ import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 import SaveIcon from "@mui/icons-material/Save";
 import mapboxgl from 'mapbox-gl';
-import ToggleButton from '@mui/material/ToggleButton';
-import TimelineIcon from '@mui/icons-material/Timeline';
 
 mapboxgl.accessToken = 'pk.eyJ1IjoiZGVubmlzanMiLCJhIjoiY21iM3ByaW04MGVpODJscTJndmhtdzJpMiJ9.nKVReVc3h7T5JQbhFXF5fw';
 
-function MapboxMap({ points, showPath }) {
+function MapboxMap({ points }) {
   const mapContainer = React.useRef(null);
   const map = React.useRef(null);
   const markers = React.useRef([]);
@@ -54,105 +52,67 @@ function MapboxMap({ points, showPath }) {
   }, []); // only on mount/unmount
 
   // Update markers and fit bounds when points change
-  React.useEffect(() => {
-    if (!map.current) return;
+  // Update markers and fit bounds when points change
+React.useEffect(() => {
+  if (!map.current) return;
 
-    // Remove old markers
-    markers.current.forEach(marker => marker.remove());
-    markers.current = [];
+  // Remove old markers
+  markers.current.forEach(marker => marker.remove());
+  markers.current = [];
 
-    // Group points by rounded lat/lng
-    const grouped = {};
-    points.forEach((pt, idx) => {
-      const lat = Math.round(pt.lat * 1e5) / 1e5;
-      const lng = Math.round(pt.lng * 1e5) / 1e5;
-      const key = `${lat},${lng}`;
-      if (!grouped[key]) grouped[key] = [];
-      grouped[key].push({ ...pt, idx });
+  // Group points by lat/lng
+  const grouped = {};
+  points.forEach((pt, idx) => {
+  // Round to 5 decimal places for grouping
+  const lat = Math.round(pt.lat * 1e5) / 1e5;
+  const lng = Math.round(pt.lng * 1e5) / 1e5;
+  const key = `${lat},${lng}`;
+  if (!grouped[key]) grouped[key] = [];
+  grouped[key].push({ ...pt, idx });
+});
+
+  // Place markers, offsetting if more than one at a location
+  Object.values(grouped).forEach(group => {
+    const n = group.length;
+    group.forEach((pt, i) => {
+      let offsetLat = pt.lat;
+      let offsetLng = pt.lng;
+      if (n > 1) {
+        // Offset in a small circle
+        const angle = (2 * Math.PI * i) / n;
+        const radius = 0.15; // ~50 meters
+        offsetLat += Math.sin(angle) * radius;
+        offsetLng += Math.cos(angle) * radius;
+      }
+
+      const el = document.createElement('div');
+      el.style.background = '#1976d2';
+      el.style.color = 'white';
+      el.style.borderRadius = '50%';
+      el.style.width = '28px';
+      el.style.height = '28px';
+      el.style.display = 'flex';
+      el.style.alignItems = 'center';
+      el.style.justifyContent = 'center';
+      el.style.fontWeight = 'bold';
+      el.style.fontSize = '15px';
+      el.style.border = '2px solid white';
+      el.innerText = (pt.idx + 1).toString();
+
+      const marker = new mapboxgl.Marker(el)
+        .setLngLat([offsetLng, offsetLat])
+        .addTo(map.current);
+      markers.current.push(marker);
     });
+  });
 
-    // Place markers, offsetting if more than one at a location
-    Object.values(grouped).forEach(group => {
-      const n = group.length;
-      group.forEach((pt, i) => {
-        let offsetLat = pt.lat;
-        let offsetLng = pt.lng;
-        if (n > 1) {
-          // Offset in a small circle
-          const angle = (2 * Math.PI * i) / n;
-          const radius = 0.01; // ~1km, adjust for your zoom/needs
-          offsetLat += Math.sin(angle) * radius;
-          offsetLng += Math.cos(angle) * radius;
-        }
-
-        const el = document.createElement('div');
-        el.style.background = '#1976d2';
-        el.style.color = 'white';
-        el.style.borderRadius = '50%';
-        el.style.width = '28px';
-        el.style.height = '28px';
-        el.style.display = 'flex';
-        el.style.alignItems = 'center';
-        el.style.justifyContent = 'center';
-        el.style.fontWeight = 'bold';
-        el.style.fontSize = '15px';
-        el.style.border = '2px solid white';
-        el.innerText = (pt.idx + 1).toString();
-
-        const marker = new mapboxgl.Marker(el)
-          .setLngLat([offsetLng, offsetLat])
-          .addTo(map.current);
-        markers.current.push(marker);
-      });
-    });
-
-    // Fit bounds to all points
-    if (points.length) {
-      const bounds = new mapboxgl.LngLatBounds();
-      points.forEach(pt => bounds.extend([pt.lng, pt.lat]));
-      map.current.fitBounds(bounds, { padding: 40 });
-    }
-  }, [points]);
-
-  // Draw or remove the path when showPath or points change
-  React.useEffect(() => {
-    if (!map.current) return;
-
-    // Remove old path if exists
-    if (map.current.getLayer('itinerary-path')) {
-      map.current.removeLayer('itinerary-path');
-    }
-    if (map.current.getSource('itinerary-path')) {
-      map.current.removeSource('itinerary-path');
-    }
-
-    if (showPath && points.length > 1) {
-      map.current.addSource('itinerary-path', {
-        type: 'geojson',
-        data: {
-          type: 'Feature',
-          geometry: {
-            type: 'LineString',
-            coordinates: points.map(pt => [pt.lng, pt.lat])
-          }
-        }
-      });
-      map.current.addLayer({
-        id: 'itinerary-path',
-        type: 'line',
-        source: 'itinerary-path',
-        layout: {
-          'line-join': 'round',
-          'line-cap': 'round'
-        },
-        paint: {
-          'line-color': 'rgba(51,173,255,0.6)', // light blue, semi-transparent
-          'line-width': 2,
-          'line-dasharray': [0.5, 2]
-        }
-      });
-    }
-  }, [showPath, points]);
+  // Fit bounds to all points
+  if (points.length) {
+    const bounds = new mapboxgl.LngLatBounds();
+    points.forEach(pt => bounds.extend([pt.lng, pt.lat]));
+    map.current.fitBounds(bounds, { padding: 40 });
+  }
+}, [points]);
 
   return (
     <div ref={mapContainer} style={{ width: '100%', height: '600px', minWidth: 400 }} />
@@ -184,7 +144,6 @@ function App() {
   const [endDate, setEndDate] = useState("");
   const [newLocation, setNewLocation] = useState("");
   const [newNights, setNewNights] = useState("");
-  const [showPath, setShowPath] = useState(false);
 
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -400,22 +359,13 @@ function App() {
         >
           Download itinerary.json
         </Button>
-        <ToggleButton
-          value="showPath"
-          selected={showPath}
-          onChange={() => setShowPath(v => !v)}
-          sx={{ ml: 2 }}
-        >
-          <TimelineIcon sx={{ mr: 1 }} />
-          {showPath ? "Hide Path" : "Show Path"}
-        </ToggleButton>
       </Box>
 
       {/* Table and Map side by side */}
       <Box sx={{ display: "flex", flexDirection: "row", gap: 3, alignItems: "flex-start" }}>
         <Box sx={{ flex: 1, minWidth: 400 }}>
-          <TableContainer component={Paper} elevation={3} sx={{ height: 600 }}>
-            <Table stickyHeader>
+          <TableContainer component={Paper} elevation={3}>
+            <Table>
               <TableHead>
                 <TableRow>
                   <TableCell sx={{ background: "#33adff", color: "white", width: 32, textAlign: "center" }}>#</TableCell>
@@ -527,15 +477,12 @@ function App() {
             flex: 1,
             minWidth: 400,
             position: "sticky",
-            top: 32,
+            top: 32, // adjust as needed for your header height
             alignSelf: "flex-start",
             height: "600px"
           }}
         >
-          <MapboxMap
-            points={segments.map(s => ({ lat: s.lat, lng: s.lng }))}
-            showPath={showPath}
-          />
+          <MapboxMap points={segments.map(s => ({ lat: s.lat, lng: s.lng }))} />
         </Box>
       </Box>
     </Container>

@@ -1,0 +1,367 @@
+[
+  {
+    "location": "Bangkok",
+    "country": "Thailand",
+    "arrival_date": "06-02-2025",
+    "nights": 3,
+    "arrival_method": "",
+    "journey_time": "",
+    "activities": [
+      "Grand Palace, Wat Pho, Wat Arun",
+      "Explore Chinatown and Pak Khlong Talat flower market",
+      "Visit Jim Thompson House and take a Chao Phraya River ferry",
+      "Day trip to Ayutthaya for ancient temples",
+      "Enjoy rooftop drinks and night markets (Asiatique, Rod Fai)"
+    ],
+    "lat": 13.7563,
+    "lng": 100.5018
+  },
+  {
+    "location": "Chiang Mai",
+    "country": "Thailand",
+    "arrival_date": "06-05-2025",
+    "nights": 4,
+    "arrival_method": "Flight or overnight train",
+    "journey_time": "1.5 hrs (flight) / 12 hrs (train)",
+    "activities": [
+      "Old City temples: Wat Phra Singh, Wat Chedi Luang",
+      "Doi Suthep mountain temple at sunset",
+      "Day trip to Elephant Nature Park (ethical sanctuary)",
+      "Chiang Mai Night Bazaar and Sunday Walking Street"
+    ],
+    "lat": 18.7883,
+    "lng": 98.9853
+  },
+  {
+    "location": "Pai",
+    "country": "Thailand",
+    "arrival_date": "06-09-2025",
+    "nights": 6,
+    "arrival_method": "Minivan from Chiang Mai",
+    "journey_time": "3.5 hrs",
+    "activities": [
+      "Relax in cafes, walk the bamboo bridge",
+      "Visit Pai Canyon, hot springs, and waterfalls (Mo Paeng, Pam Bok)",
+      "Rent a scooter for countryside exploration",
+      "Sunset at Yun Lai Viewpoint",
+      "Soak in the relaxed hippie vibe"
+    ],
+    "lat": 19.3587,
+    "lng": 98.4367
+  },
+  {
+    "location": "Chiang Rai",
+    "country": "Thailand",
+    "arrival_date": "06-15-2025",
+    "nights": 3,
+    "arrival_method": "Minivan via Chiang Mai",
+    "journey_time": "7-8 hrs",
+    "activities": [
+      "White Temple (Wat Rong Khun), Blue Temple, Black House",
+      "Day trip to the Golden Triangle and Opium Museum",
+      "Explore local night markets and tea plantations"
+    ],
+    "lat": 19.9105,
+    "lng": 99.8406
+  },
+  {
+    "location": "Huay Xai",
+    "country": "Laos",
+    "arrival_date": "06-18-2025",
+    "nights": 2,
+    "arrival_method": "Bus from Chiang Rai",
+    "journey_time": "2.5-3 hrs",
+    "activities": [
+      "Cross the border at Chiang Khong",
+      "Begin 2-day Mekong slow boat to Luang Prabang"
+    ],
+    "lat": 20.2763,
+    "lng": 100.413
+  },
+  {
+    "location": "Luang Prabang",
+    "country": "Laos",
+    "arrival_date": "06-20-2025",
+    "nights": 5,
+    "arrival_method": "Slow boat",
+    "journey_time": "",
+    "activities": [
+      "Kuang Si Waterfalls, Mount Phousi sunset hike",
+      "Alms-giving ceremony with monks at dawn",
+      "Royal Palace Museum, Wat Xieng Thong",
+      "Night market and riverside dining"
+    ],
+    "lat": 19.8851,
+    "lng": 102.1346
+  },
+  {
+    "location": "Nong Khiaw",
+    "country": "Laos",
+    "arrival_date": "06-25-2025",
+    "nights": 3,
+    "arrival_method": "Minivan from Luang Prabang",
+    "journey_time": "3.5-4 hrs",
+    "activities": [
+      "Hike Pha Daeng Viewpoint",
+      "100 Waterfalls Trek or kayak on Nam Ou",
+      "Day trip to Muang Ngoy by boat"
+    ],
+    "lat": 20.5634,
+    "lng": 102.6156
+  },
+  {
+    "location": "Vang Vieng",
+    "country": "Laos",
+    "arrival_date": "06-28-2025",
+    "nights": 4,
+    "arrival_method": "Van from Nong Khiaw",
+    "journey_time": "7-8 hrs",
+    "activities": [
+      "Tubing or kayaking on the Nam Song River",
+      "Blue Lagoon swimming, explore Tham Phu Kham Cave",
+      "Hot air balloon ride for sunrise/sunset",
+      "Scenic hikes and motorbike rides"
+    ],
+    "lat": 18.9235,
+    "lng": 102.4476
+  },
+  {
+    "location": "Vientiane",
+    "country": "Laos",
+    "arrival_date": "07-02-2025",
+    "nights": 2,
+    "arrival_method": "Bus or van from Vang Vieng",
+    "journey_time": "4 hrs",
+    "activities": [
+      "Visit Pha That Luang, Wat Si Saket, and Patuxai Arch",
+      "Relax on the Mekong riverside with local beer and sunset views",
+      "Night market and massage"
+    ],
+    "lat": 17.9757,
+    "lng": 102.6331
+  },
+  {
+    "location": "Hanoi",
+    "country": "Vietnam",
+    "arrival_date": "07-04-2025",
+    "nights": 5,
+    "arrival_method": "Flight from Vientiane",
+    "journey_time": "1 hr",
+    "activities": [
+      "Explore the Old Quarter and Hoan Kiem Lake",
+      "Water puppet theatre and train street caf\u00e9",
+      "Temple of Literature, Hoa Lo Prison",
+      "Day trip to Bat Trang pottery village or Perfume Pagoda"
+    ],
+    "lat": 21.0285,
+    "lng": 105.8542
+  },
+  {
+    "location": "Ha Giang Loop",
+    "country": "Vietnam",
+    "arrival_date": "07-09-2025",
+    "nights": 5,
+    "arrival_method": "Bus",
+    "journey_time": "",
+    "activities": [
+      "4-night motorbike adventure through mountain passes",
+      "Dong Van, Ma Pi Leng Pass, Meo Vac",
+      "Stay in homestays and experience ethnic minority villages"
+    ],
+    "lat": 22.8233,
+    "lng": 104.9836
+  },
+  {
+    "location": "Sapa",
+    "country": "Vietnam",
+    "arrival_date": "07-14-2025",
+    "nights": 4,
+    "arrival_method": "Bus from Ha Giang",
+    "journey_time": "6-7 hrs",
+    "activities": [
+      "Trekking through rice terraces and Hmong villages",
+      "Fansipan mountain cable car",
+      "Visit Cat Cat and Ta Van villages"
+    ],
+    "lat": 22.3402,
+    "lng": 103.8448
+  },
+  {
+    "location": "Ninh Binh",
+    "country": "Vietnam",
+    "arrival_date": "07-18-2025",
+    "nights": 4,
+    "arrival_method": "Bus/train from Sapa",
+    "journey_time": "6-7 hrs",
+    "activities": [
+      "Boat rides at Tam Coc or Trang An",
+      "Climb Mua Cave viewpoint",
+      "Explore Bich Dong Pagoda and ancient capital Hoa Lu"
+    ],
+    "lat": 20.2506,
+    "lng": 105.9745
+  },
+  {
+    "location": "Cat Ba Island & Lan Ha Bay",
+    "country": "Vietnam",
+    "arrival_date": "07-22-2025",
+    "nights": 4,
+    "arrival_method": "Bus/ferry from Ninh Binh",
+    "journey_time": "5-6 hrs",
+    "activities": [
+      "Explore beaches or Cat Ba National Park",
+      "1-night Lan Ha Bay cruise with kayaking and caves",
+      "Relax, hike, visit fishing villages"
+    ],
+    "lat": 20.8,
+    "lng": 107.07
+  },
+  {
+    "location": "Hue",
+    "country": "Vietnam",
+    "arrival_date": "07-26-2025",
+    "nights": 4,
+    "arrival_method": "Ferry + train or flight",
+    "journey_time": "8-10 hrs",
+    "activities": [
+      "Imperial Citadel, Thien Mu Pagoda, royal tombs",
+      "Perfume River boat trip",
+      "Dong Ba market and local cuisine"
+    ],
+    "lat": 16.4637,
+    "lng": 107.5909
+  },
+  {
+    "location": "Phong Nha",
+    "country": "Vietnam",
+    "arrival_date": "07-30-2025",
+    "nights": 3,
+    "arrival_method": "Bus or train",
+    "journey_time": "4-5 hrs",
+    "activities": [
+      "Paradise Cave and Phong Nha Cave boat tour",
+      "Ziplining and mud bath at Dark Cave",
+      "Bicycle around the village and explore jungle trails"
+    ],
+    "lat": 17.555,
+    "lng": 106.2871
+  },
+  {
+    "location": "Hoi An / Da Nang",
+    "country": "Vietnam",
+    "arrival_date": "08-02-2025",
+    "nights": 5,
+    "arrival_method": "Train or van",
+    "journey_time": "6-7 hrs",
+    "activities": [
+      "Explore Ancient Town and lantern-lit nights",
+      "Tailor-made clothing, riverfront dining",
+      "Beach time at An Bang or My Khe",
+      "Day trips to Marble Mountains and My Son Sanctuary"
+    ],
+    "lat": 15.8801,
+    "lng": 108.338
+  },
+  {
+    "location": "Ho Chi Minh City & Mekong Delta",
+    "country": "Vietnam",
+    "arrival_date": "08-07-2025",
+    "nights": 5,
+    "arrival_method": "Flight",
+    "journey_time": "1.5 hrs",
+    "activities": [
+      "Cu Chi Tunnels, War Remnants Museum",
+      "Day trip to Ben Tre or Can Tho floating market",
+      "Explore rooftop bars and District 1 street food"
+    ],
+    "lat": 10.7769,
+    "lng": 106.7009
+  },
+  {
+    "location": "Phnom Penh",
+    "country": "Cambodia",
+    "arrival_date": "08-12-2025",
+    "nights": 4,
+    "arrival_method": "Bus or flight",
+    "journey_time": "6-7 hrs / 1 hr",
+    "activities": [
+      "Royal Palace and Silver Pagoda",
+      "Tuol Sleng Genocide Museum and Killing Fields",
+      "Riverside walk and local markets"
+    ],
+    "lat": 11.5564,
+    "lng": 104.9282
+  },
+  {
+    "location": "Siem Reap & Angkor Wat",
+    "country": "Cambodia",
+    "arrival_date": "08-16-2025",
+    "nights": 7,
+    "arrival_method": "Bus or flight",
+    "journey_time": "5-6 hrs / 1 hr",
+    "activities": [
+      "Sunrise at Angkor Wat, explore Bayon and Ta Prohm",
+      "Day trip to Banteay Srei or Phnom Kulen waterfall",
+      "Visit Tonle Sap floating village",
+      "Relax in caf\u00e9s or enjoy nightlife on Pub Street"
+    ],
+    "lat": 13.3618,
+    "lng": 103.8606
+  },
+  {
+    "location": "Koh Ker & Preah Vihear",
+    "country": "Cambodia",
+    "arrival_date": "08-23-2025",
+    "nights": 2,
+    "arrival_method": "Private car or minivan",
+    "journey_time": "4-5 hrs",
+    "activities": [
+      "Visit the remote stepped pyramid at Koh Ker",
+      "Explore the dramatic hilltop Preah Vihear Temple"
+    ],
+    "lat": 13.7881,
+    "lng": 104.973
+  },
+  {
+    "location": "Battambang",
+    "country": "Cambodia",
+    "arrival_date": "08-25-2025",
+    "nights": 3,
+    "arrival_method": "Bus via Siem Reap",
+    "journey_time": "6-7 hrs",
+    "activities": [
+      "Ride the bamboo train through the countryside",
+      "Watch the bat exodus from Phnom Sampeau caves",
+      "Explore French colonial architecture and local art scene"
+    ],
+    "lat": 13.0957,
+    "lng": 103.2022
+  },
+  {
+    "location": "Siem Reap",
+    "country": "Cambodia",
+    "arrival_date": "08-28-2025",
+    "nights": 2,
+    "arrival_method": "Bus or car",
+    "journey_time": "3-4 hrs",
+    "activities": [
+      "Last-minute shopping, caf\u00e9s, or spa day"
+    ],
+    "lat": 13.3618,
+    "lng": 103.8606
+  },
+  {
+    "location": "Bangkok",
+    "country": "Thailand",
+    "arrival_date": "08-30-2025",
+    "nights": 3,
+    "arrival_method": "Flight from Siem Reap",
+    "journey_time": "1 hr",
+    "activities": [
+      "Final shopping, massage, rooftop drinks",
+      "Optional: Kanchanaburi day trip or Erawan Falls"
+    ],
+    "lat": 13.7563,
+    "lng": 100.5018
+  }
+]

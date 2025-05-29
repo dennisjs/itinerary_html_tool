@@ -21,13 +21,13 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 import SaveIcon from "@mui/icons-material/Save";
+import AddCircleIcon from "@mui/icons-material/AddCircle";
+import RemoveCircleIcon from "@mui/icons-material/RemoveCircle";
 import mapboxgl from 'mapbox-gl';
-import ToggleButton from '@mui/material/ToggleButton';
-import TimelineIcon from '@mui/icons-material/Timeline';
 
 mapboxgl.accessToken = 'pk.eyJ1IjoiZGVubmlzanMiLCJhIjoiY21iM3ByaW04MGVpODJscTJndmhtdzJpMiJ9.nKVReVc3h7T5JQbhFXF5fw';
 
-function MapboxMap({ points, showPath }) {
+function MapboxMap({ points }) {
   const mapContainer = React.useRef(null);
   const map = React.useRef(null);
   const markers = React.useRef([]);
@@ -51,7 +51,7 @@ function MapboxMap({ points, showPath }) {
         map.current = null;
       }
     };
-  }, []); // only on mount/unmount
+  }, []); // <-- empty dependency array: only run on mount/unmount
 
   // Update markers and fit bounds when points change
   React.useEffect(() => {
@@ -61,49 +61,10 @@ function MapboxMap({ points, showPath }) {
     markers.current.forEach(marker => marker.remove());
     markers.current = [];
 
-    // Group points by rounded lat/lng
-    const grouped = {};
-    points.forEach((pt, idx) => {
-      const lat = Math.round(pt.lat * 1e5) / 1e5;
-      const lng = Math.round(pt.lng * 1e5) / 1e5;
-      const key = `${lat},${lng}`;
-      if (!grouped[key]) grouped[key] = [];
-      grouped[key].push({ ...pt, idx });
-    });
-
-    // Place markers, offsetting if more than one at a location
-    Object.values(grouped).forEach(group => {
-      const n = group.length;
-      group.forEach((pt, i) => {
-        let offsetLat = pt.lat;
-        let offsetLng = pt.lng;
-        if (n > 1) {
-          // Offset in a small circle
-          const angle = (2 * Math.PI * i) / n;
-          const radius = 0.01; // ~1km, adjust for your zoom/needs
-          offsetLat += Math.sin(angle) * radius;
-          offsetLng += Math.cos(angle) * radius;
-        }
-
-        const el = document.createElement('div');
-        el.style.background = '#1976d2';
-        el.style.color = 'white';
-        el.style.borderRadius = '50%';
-        el.style.width = '28px';
-        el.style.height = '28px';
-        el.style.display = 'flex';
-        el.style.alignItems = 'center';
-        el.style.justifyContent = 'center';
-        el.style.fontWeight = 'bold';
-        el.style.fontSize = '15px';
-        el.style.border = '2px solid white';
-        el.innerText = (pt.idx + 1).toString();
-
-        const marker = new mapboxgl.Marker(el)
-          .setLngLat([offsetLng, offsetLat])
-          .addTo(map.current);
-        markers.current.push(marker);
-      });
+    // Add new markers
+    points.forEach(pt => {
+      const marker = new mapboxgl.Marker().setLngLat([pt.lng, pt.lat]).addTo(map.current);
+      markers.current.push(marker);
     });
 
     // Fit bounds to all points
@@ -113,46 +74,6 @@ function MapboxMap({ points, showPath }) {
       map.current.fitBounds(bounds, { padding: 40 });
     }
   }, [points]);
-
-  // Draw or remove the path when showPath or points change
-  React.useEffect(() => {
-    if (!map.current) return;
-
-    // Remove old path if exists
-    if (map.current.getLayer('itinerary-path')) {
-      map.current.removeLayer('itinerary-path');
-    }
-    if (map.current.getSource('itinerary-path')) {
-      map.current.removeSource('itinerary-path');
-    }
-
-    if (showPath && points.length > 1) {
-      map.current.addSource('itinerary-path', {
-        type: 'geojson',
-        data: {
-          type: 'Feature',
-          geometry: {
-            type: 'LineString',
-            coordinates: points.map(pt => [pt.lng, pt.lat])
-          }
-        }
-      });
-      map.current.addLayer({
-        id: 'itinerary-path',
-        type: 'line',
-        source: 'itinerary-path',
-        layout: {
-          'line-join': 'round',
-          'line-cap': 'round'
-        },
-        paint: {
-          'line-color': 'rgba(51,173,255,0.6)', // light blue, semi-transparent
-          'line-width': 2,
-          'line-dasharray': [0.5, 2]
-        }
-      });
-    }
-  }, [showPath, points]);
 
   return (
     <div ref={mapContainer} style={{ width: '100%', height: '600px', minWidth: 400 }} />
@@ -184,7 +105,6 @@ function App() {
   const [endDate, setEndDate] = useState("");
   const [newLocation, setNewLocation] = useState("");
   const [newNights, setNewNights] = useState("");
-  const [showPath, setShowPath] = useState(false);
 
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -205,6 +125,7 @@ function App() {
         setLoading(false);
       })
       .catch(() => {
+        // fallback or error handling
         setItinerary([]);
         setStartDate("");
         setEndDate("");
@@ -287,15 +208,9 @@ function App() {
   const handleSave = () => {
     const data = segments.map(item => ({
       location: item.location,
-      country: item.country,
       arrival_date: item.arrival,
       nights: item.nights,
-      departure_date: item.departure,
-      arrival_method: item.arrival_method,
-      journey_time: item.journey_time,
-      activities: item.activities,
-      lat: item.lat,
-      lng: item.lng
+      departure_date: item.departure
     }));
     const blob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json" });
     const a = document.createElement("a");
@@ -313,8 +228,9 @@ function App() {
         const json = JSON.parse(e.target.result);
         setItinerary(json.map(item => ({
           ...item,
-          nights: Number(item.nights) || 1
+          nights: Number(item.nights) || 1 // ensure nights is a number
         })));
+        // Set start date to first arrival_date if present
         if (json[0]?.arrival_date) setStartDate(toIsoDate(json[0].arrival_date));
         const newStart = json[0]?.arrival_date ? toIsoDate(json[0].arrival_date) : startDate;
         setEndDate(getTripEnd(json, newStart));
@@ -325,6 +241,7 @@ function App() {
     reader.readAsText(file);
   };
 
+  // Show loading or error messages before rendering the main UI
   if (loading) {
     return <Typography sx={{ mt: 4, textAlign: "center" }}>Loading itinerary...</Typography>;
   }
@@ -392,33 +309,15 @@ function App() {
             onChange={handleFileUpload}
           />
         </Button>
-        <Button
-          variant="contained"
-          color="primary"
-          sx={{ ml: 1 }}
-          onClick={handleSave}
-        >
-          Download itinerary.json
-        </Button>
-        <ToggleButton
-          value="showPath"
-          selected={showPath}
-          onChange={() => setShowPath(v => !v)}
-          sx={{ ml: 2 }}
-        >
-          <TimelineIcon sx={{ mr: 1 }} />
-          {showPath ? "Hide Path" : "Show Path"}
-        </ToggleButton>
       </Box>
 
       {/* Table and Map side by side */}
       <Box sx={{ display: "flex", flexDirection: "row", gap: 3, alignItems: "flex-start" }}>
         <Box sx={{ flex: 1, minWidth: 400 }}>
-          <TableContainer component={Paper} elevation={3} sx={{ height: 600 }}>
-            <Table stickyHeader>
+          <TableContainer component={Paper} elevation={3}>
+            <Table>
               <TableHead>
                 <TableRow>
-                  <TableCell sx={{ background: "#33adff", color: "white", width: 32, textAlign: "center" }}>#</TableCell>
                   <TableCell sx={{ background: "#33adff", color: "white", minWidth: 60, maxWidth: 90, width: 80 }}>Location</TableCell>
                   <TableCell sx={{ background: "#33adff", color: "white" }}>Country</TableCell>
                   <TableCell sx={{ background: "#33adff", color: "white" }}>Arrival Date</TableCell>
@@ -431,7 +330,6 @@ function App() {
                 {segments.map((item, idx) => (
                   <React.Fragment key={idx}>
                     <TableRow>
-                      <TableCell sx={{ textAlign: "center", fontWeight: "bold" }}>{idx + 1}</TableCell>
                       <TableCell sx={{ minWidth: 60, maxWidth: 90, width: 80, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
                         {item.location}
                       </TableCell>
@@ -460,7 +358,7 @@ function App() {
                       </TableCell>
                     </TableRow>
                     <TableRow>
-                      <TableCell colSpan={7} sx={{ background: "#f7fbff", p: 2 }}>
+                      <TableCell colSpan={6} sx={{ background: "#f7fbff", p: 2 }}>
                         <strong>Transport:</strong> {item.arrival_method || "—"}
                         <span style={{ marginLeft: 24 }}>
                           <strong>Transport Time:</strong> {item.journey_time || "—"}
@@ -522,20 +420,8 @@ function App() {
         </Box>
 
         {/* Mapbox Map on the right */}
-        <Box
-          sx={{
-            flex: 1,
-            minWidth: 400,
-            position: "sticky",
-            top: 32,
-            alignSelf: "flex-start",
-            height: "600px"
-          }}
-        >
-          <MapboxMap
-            points={segments.map(s => ({ lat: s.lat, lng: s.lng }))}
-            showPath={showPath}
-          />
+        <Box sx={{ flex: 1, minWidth: 400 }}>
+          <MapboxMap points={segments.map(s => ({ lat: s.lat, lng: s.lng }))} />
         </Box>
       </Box>
     </Container>
