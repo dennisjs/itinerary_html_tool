@@ -1,6 +1,6 @@
 import 'mapbox-gl/dist/mapbox-gl.css';
 
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Container,
   Typography,
@@ -38,7 +38,7 @@ async function getCoordinates(placeName) {
   return null;
 }
 
-function MapboxMap({ points, showPath, onMarkerClick }) {
+function MapboxMap({ points, showPath }) {
   const mapContainer = React.useRef(null);
   const map = React.useRef(null);
   const markers = React.useRef([]);
@@ -109,10 +109,6 @@ function MapboxMap({ points, showPath, onMarkerClick }) {
         el.style.fontSize = '15px';
         el.style.border = '2px solid white';
         el.innerText = (pt.idx + 1).toString();
-        el.style.cursor = "pointer";
-        el.onclick = () => {
-          if (onMarkerClick) onMarkerClick(pt.idx);
-        };
 
         const marker = new mapboxgl.Marker(el)
           .setLngLat([offsetLng, offsetLat])
@@ -127,7 +123,7 @@ function MapboxMap({ points, showPath, onMarkerClick }) {
       points.forEach(pt => bounds.extend([pt.lng, pt.lat]));
       map.current.fitBounds(bounds, { padding: 40 });
     }
-  }, [points, onMarkerClick]);
+  }, [points]);
 
   // Draw or remove the path when showPath or points change
   React.useEffect(() => {
@@ -204,9 +200,6 @@ function App() {
 
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
-
-  // For scrolling to table rows
-  const rowRefs = useRef([]);
 
   // Load default JSON on mount
   useEffect(() => {
@@ -294,33 +287,33 @@ function App() {
   };
 
   // Add entry with geocoding
-  const handleAddEntry = async () => {
-    if (!newLocation.trim() || !newNights) return;
-    setAdding(true);
-    const coords = await getCoordinates(newLocation.trim());
-    setAdding(false);
-    if (
-      !coords ||
-      typeof coords.lat !== "number" ||
-      typeof coords.lng !== "number" ||
-      isNaN(coords.lat) ||
-      isNaN(coords.lng)
-    ) {
-      alert("Could not find valid coordinates for this location.");
-      return;
+const handleAddEntry = async () => {
+  if (!newLocation.trim() || !newNights) return;
+  setAdding(true);
+  const coords = await getCoordinates(newLocation.trim());
+  setAdding(false);
+  if (
+    !coords ||
+    typeof coords.lat !== "number" ||
+    typeof coords.lng !== "number" ||
+    isNaN(coords.lat) ||
+    isNaN(coords.lng)
+  ) {
+    alert("Could not find valid coordinates for this location.");
+    return;
+  }
+  setItinerary([
+    ...itinerary,
+    {
+      location: newLocation.trim(),
+      nights: Math.max(1, parseInt(newNights)),
+      lat: coords.lat,
+      lng: coords.lng
     }
-    setItinerary([
-      ...itinerary,
-      {
-        location: newLocation.trim(),
-        nights: Math.max(1, parseInt(newNights)),
-        lat: coords.lat,
-        lng: coords.lng
-      }
-    ]);
-    setNewLocation("");
-    setNewNights("");
-  };
+  ]);
+  setNewLocation("");
+  setNewNights("");
+};
 
   const handleSave = () => {
     const data = segments.map(item => ({
@@ -361,25 +354,6 @@ function App() {
       }
     };
     reader.readAsText(file);
-  };
-
-  // Scroll to row when marker is clicked
-  const scrollToRow = idx => {
-    const ref = rowRefs.current[idx];
-    if (ref && ref.scrollIntoView) {
-      // Only scroll the table container, not the whole page
-      ref.scrollIntoView({ behavior: "smooth", block: "nearest" });
-      window.setTimeout(() => {
-        const tableContainer = ref.closest('.MuiTableContainer-root');
-        if (tableContainer) {
-          const containerRect = tableContainer.getBoundingClientRect();
-          const rowRect = ref.getBoundingClientRect();
-          // Remove or reduce the offset so the row is not at the very top
-          const offset = rowRect.top - containerRect.top - 8; // 8px for padding
-          tableContainer.scrollTop += offset - 60; // Try -8 or 0 for minimal offset
-        }
-      }, 300);
-    }
   };
 
   if (loading) {
@@ -487,7 +461,7 @@ function App() {
               <TableBody>
                 {segments.map((item, idx) => (
                   <React.Fragment key={idx}>
-                    <TableRow ref={el => (rowRefs.current[idx] = el)}>
+                    <TableRow>
                       <TableCell sx={{ textAlign: "center", fontWeight: "bold" }}>{idx + 1}</TableCell>
                       <TableCell sx={{ minWidth: 60, maxWidth: 90, width: 80, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
                         {item.location}
@@ -595,7 +569,6 @@ function App() {
           <MapboxMap
             points={segments.filter(s => typeof s.lat === "number" && typeof s.lng === "number" && !isNaN(s.lat) && !isNaN(s.lng)).map(s => ({ lat: s.lat, lng: s.lng }))}
             showPath={showPath}
-            onMarkerClick={scrollToRow}
           />
         </Box>
       </Box>
