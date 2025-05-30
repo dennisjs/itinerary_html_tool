@@ -27,17 +27,6 @@ import TimelineIcon from '@mui/icons-material/Timeline';
 
 mapboxgl.accessToken = 'pk.eyJ1IjoiZGVubmlzanMiLCJhIjoiY21iM3ByaW04MGVpODJscTJndmhtdzJpMiJ9.nKVReVc3h7T5JQbhFXF5fw';
 
-// Geocode using OpenStreetMap Nominatim
-async function getCoordinates(placeName) {
-  const url = `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(placeName)}`;
-  const response = await fetch(url, { headers: { 'Accept-Language': 'en' } });
-  const data = await response.json();
-  if (data.length > 0) {
-    return { lat: parseFloat(data[0].lat), lng: parseFloat(data[0].lon) };
-  }
-  return null;
-}
-
 function MapboxMap({ points, showPath }) {
   const mapContainer = React.useRef(null);
   const map = React.useRef(null);
@@ -196,7 +185,6 @@ function App() {
   const [newLocation, setNewLocation] = useState("");
   const [newNights, setNewNights] = useState("");
   const [showPath, setShowPath] = useState(false);
-  const [adding, setAdding] = useState(false);
 
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -286,34 +274,15 @@ function App() {
     setItinerary(newItinerary);
   };
 
-  // Add entry with geocoding
-const handleAddEntry = async () => {
-  if (!newLocation.trim() || !newNights) return;
-  setAdding(true);
-  const coords = await getCoordinates(newLocation.trim());
-  setAdding(false);
-  if (
-    !coords ||
-    typeof coords.lat !== "number" ||
-    typeof coords.lng !== "number" ||
-    isNaN(coords.lat) ||
-    isNaN(coords.lng)
-  ) {
-    alert("Could not find valid coordinates for this location.");
-    return;
-  }
-  setItinerary([
-    ...itinerary,
-    {
-      location: newLocation.trim(),
-      nights: Math.max(1, parseInt(newNights)),
-      lat: coords.lat,
-      lng: coords.lng
-    }
-  ]);
-  setNewLocation("");
-  setNewNights("");
-};
+  const handleAddEntry = () => {
+    if (!newLocation.trim() || !newNights) return;
+    setItinerary([
+      ...itinerary,
+      { location: newLocation.trim(), nights: Math.max(1, parseInt(newNights)) }
+    ]);
+    setNewLocation("");
+    setNewNights("");
+  };
 
   const handleSave = () => {
     const data = segments.map(item => ({
@@ -521,7 +490,6 @@ const handleAddEntry = async () => {
               value={newLocation}
               onChange={e => setNewLocation(e.target.value)}
               sx={{ mr: 2 }}
-              disabled={adding}
             />
             <TextField
               label="# Nights"
@@ -530,16 +498,14 @@ const handleAddEntry = async () => {
               onChange={e => setNewNights(e.target.value)}
               sx={{ mr: 2, width: 100 }}
               inputProps={{ min: 1 }}
-              disabled={adding}
             />
             <Button
               variant="contained"
               color="primary"
               startIcon={<AddIcon />}
               onClick={handleAddEntry}
-              disabled={adding}
             >
-              {adding ? "Adding..." : "Add Location"}
+              Add Location
             </Button>
           </Box>
 
@@ -567,7 +533,7 @@ const handleAddEntry = async () => {
           }}
         >
           <MapboxMap
-            points={segments.filter(s => typeof s.lat === "number" && typeof s.lng === "number" && !isNaN(s.lat) && !isNaN(s.lng)).map(s => ({ lat: s.lat, lng: s.lng }))}
+            points={segments.map(s => ({ lat: s.lat, lng: s.lng }))}
             showPath={showPath}
           />
         </Box>
