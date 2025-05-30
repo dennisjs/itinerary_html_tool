@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/itinerary_html_tool/static/css/main.d3855f87.css",
-    "main.js": "/itinerary_html_tool/static/js/main.7e764e07.js",
+    "main.js": "/itinerary_html_tool/static/js/main.77c7242e.js",
     "static/js/453.c8af0db0.chunk.js": "/itinerary_html_tool/static/js/453.c8af0db0.chunk.js",
     "index.html": "/itinerary_html_tool/index.html",
     "main.d3855f87.css.map": "/itinerary_html_tool/static/css/main.d3855f87.css.map",
-    "main.7e764e07.js.map": "/itinerary_html_tool/static/js/main.7e764e07.js.map",
+    "main.77c7242e.js.map": "/itinerary_html_tool/static/js/main.77c7242e.js.map",
     "453.c8af0db0.chunk.js.map": "/itinerary_html_tool/static/js/453.c8af0db0.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.d3855f87.css",
-    "static/js/main.7e764e07.js"
+    "static/js/main.77c7242e.js"
   ]
 }
