@@ -199,9 +199,8 @@ function App() {
   const [endDate, setEndDate] = useState("");
   const [newLocation, setNewLocation] = useState("");
   const [newNights, setNewNights] = useState("");
-  const [showPath, setShowPath] = useState(false);
+  const [showPath, setShowPath] = useState(true);
   const [adding, setAdding] = useState(false);
-
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
