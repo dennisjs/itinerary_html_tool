@@ -133,40 +133,55 @@ function MapboxMap({ points, showPath, onMarkerClick }) {
   React.useEffect(() => {
     if (!map.current) return;
 
-    // Remove old path if exists
-    if (map.current.getLayer('itinerary-path')) {
-      map.current.removeLayer('itinerary-path');
-    }
-    if (map.current.getSource('itinerary-path')) {
-      map.current.removeSource('itinerary-path');
+    function addPathLayer() {
+      // Remove old path if exists
+      if (map.current.getLayer('itinerary-path')) {
+        map.current.removeLayer('itinerary-path');
+      }
+      if (map.current.getSource('itinerary-path')) {
+        map.current.removeSource('itinerary-path');
+      }
+
+      if (showPath && points.length > 1) {
+        map.current.addSource('itinerary-path', {
+          type: 'geojson',
+          data: {
+            type: 'Feature',
+            geometry: {
+              type: 'LineString',
+              coordinates: points.map(pt => [pt.lng, pt.lat])
+            }
+          }
+        });
+        map.current.addLayer({
+          id: 'itinerary-path',
+          type: 'line',
+          source: 'itinerary-path',
+          layout: {
+            'line-join': 'round',
+            'line-cap': 'round'
+          },
+          paint: {
+            'line-color': 'rgba(51,173,255,0.6)', // light blue, semi-transparent
+            'line-width': 2,
+            'line-dasharray': [0.5, 2]
+          }
+        });
+      }
     }
 
-    if (showPath && points.length > 1) {
-      map.current.addSource('itinerary-path', {
-        type: 'geojson',
-        data: {
-          type: 'Feature',
-          geometry: {
-            type: 'LineString',
-            coordinates: points.map(pt => [pt.lng, pt.lat])
-          }
-        }
-      });
-      map.current.addLayer({
-        id: 'itinerary-path',
-        type: 'line',
-        source: 'itinerary-path',
-        layout: {
-          'line-join': 'round',
-          'line-cap': 'round'
-        },
-        paint: {
-          'line-color': 'rgba(51,173,255,0.6)', // light blue, semi-transparent
-          'line-width': 2,
-          'line-dasharray': [0.5, 2]
-        }
-      });
+    if (map.current.isStyleLoaded()) {
+      addPathLayer();
+    } else {
+      map.current.once('style.load', addPathLayer);
     }
+
+    // Cleanup event listener
+    return () => {
+      if (map.current) {
+        map.current.off('style.load', addPathLayer);
+      }
+    };
   }, [showPath, points]);
 
   return (
