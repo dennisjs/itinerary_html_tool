@@ -202,10 +202,14 @@ function getTripEnd(itinerary, startDate) {
 }
 
 function toIsoDate(dateStr) {
-  // Converts MM-DD-YYYY to YYYY-MM-DD
+  // Accepts YYYY-MM-DD and returns the same, or empty string if invalid
   if (!dateStr) return "";
-  const [mm, dd, yyyy] = dateStr.split("-");
-  return `${yyyy}-${mm}-${dd}`;
+  // Optionally, validate the format
+  if (/^\d{4}-\d{2}-\d{2}$/.test(dateStr)) return dateStr;
+  // If not, try to parse as Date and format as YYYY-MM-DD
+  const d = new Date(dateStr);
+  if (isNaN(d)) return "";
+  return d.toISOString().slice(0, 10);
 }
 
 function App() {
