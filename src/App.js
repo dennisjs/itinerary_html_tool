@@ -592,17 +592,6 @@ function App() {
               {adding ? "Adding..." : "Add Location"}
             </Button>
           </Box>
-
-          <Button
-            id="saveBtn"
-            variant="contained"
-            color="secondary"
-            startIcon={<SaveIcon />}
-            onClick={handleSave}
-            sx={{ mt: 2, fontWeight: "bold" }}
-          >
-            Save to itinerary.json
-          </Button>
         </Box>
 
         {/* Mapbox Map on the right */}
