@@ -222,11 +222,16 @@ function App() {
   // For scrolling to table rows
   const rowRefs = useRef([]);
 
-  // Load default JSON on mount
   useEffect(() => {
+  console.log("Fetching:", process.env.PUBLIC_URL + "/itinerary_default.json");
     fetch(process.env.PUBLIC_URL + "/itinerary_default.json")
-      .then(res => res.json())
+      .then(res => {
+        console.log("Fetch response:", res);
+        if (!res.ok) throw new Error("Network response was not ok");
+        return res.json();
+      })
       .then(json => {
+        console.log("Fetched JSON:", json);
         setItinerary(json.map(item => ({
           ...item,
           nights: Number(item.nights) || 1
@@ -237,7 +242,8 @@ function App() {
         setEndDate(getTripEnd(json, newStart));
         setLoading(false);
       })
-      .catch(() => {
+      .catch((err) => {
+        console.error("Failed to load itinerary_default.json:", err);
         setItinerary([]);
         setStartDate("");
         setEndDate("");
