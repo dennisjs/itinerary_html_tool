@@ -72,8 +72,8 @@
     "location": "Huay Xai",
     "country": "Laos",
     "arrival_date": "2025-06-15",
-    "nights": 2,
-    "departure_date": "2025-06-17",
+    "nights": 1,
+    "departure_date": "2025-06-16",
     "arrival_method": "Bus from Chiang Rai",
     "journey_time": "2.5-3 hrs",
     "activities": [
@@ -86,8 +86,8 @@
   {
     "location": "Luang Prabang",
     "country": "Laos",
-    "arrival_date": "2025-06-17",
-    "nights": 5,
+    "arrival_date": "2025-06-16",
+    "nights": 6,
     "departure_date": "2025-06-22",
     "arrival_method": "Slow boat",
     "journey_time": "",
