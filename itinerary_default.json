@@ -104,8 +104,8 @@
     "location": "Nong Khiaw",
     "country": "Laos",
     "arrival_date": "2025-06-20",
-    "nights": 3,
-    "departure_date": "2025-06-23",
+    "nights": 4,
+    "departure_date": "2025-06-24",
     "arrival_method": "Minivan from Luang Prabang",
     "journey_time": "3.5-4 hrs",
     "activities": [
@@ -119,9 +119,9 @@
   {
     "location": "Vang Vieng",
     "country": "Laos",
-    "arrival_date": "2025-06-23",
+    "arrival_date": "2025-06-24",
     "nights": 4,
-    "departure_date": "2025-06-27",
+    "departure_date": "2025-06-28",
     "arrival_method": "Van from Nong Khiaw",
     "journey_time": "7-8 hrs",
     "activities": [
@@ -136,8 +136,8 @@
   {
     "location": "Vientiane",
     "country": "Laos",
-    "arrival_date": "2025-06-27",
-    "nights": 3,
+    "arrival_date": "2025-06-28",
+    "nights": 2,
     "departure_date": "2025-06-30",
     "arrival_method": "Bus or van from Vang Vieng",
     "journey_time": "4 hrs",
@@ -167,11 +167,27 @@
     "lng": 105.8542
   },
   {
-    "location": "Ha Giang Loop",
+    "location": "Cat Ba Island & Lan Ha Bay",
     "country": "Vietnam",
     "arrival_date": "2025-07-05",
+    "nights": 3,
+    "departure_date": "2025-07-08",
+    "arrival_method": "Bus/ferry from Ninh Binh",
+    "journey_time": "5-6 hrs",
+    "activities": [
+      "Explore beaches or Cat Ba National Park",
+      "1-night Lan Ha Bay cruise with kayaking and caves",
+      "Relax, hike, visit fishing villages"
+    ],
+    "lat": 20.8,
+    "lng": 107.07
+  },
+  {
+    "location": "Ha Giang Loop",
+    "country": "Vietnam",
+    "arrival_date": "2025-07-08",
     "nights": 5,
-    "departure_date": "2025-07-10",
+    "departure_date": "2025-07-13",
     "arrival_method": "Bus",
     "journey_time": "",
     "activities": [
@@ -185,9 +201,9 @@
   {
     "location": "Sapa",
     "country": "Vietnam",
-    "arrival_date": "2025-07-10",
+    "arrival_date": "2025-07-13",
     "nights": 5,
-    "departure_date": "2025-07-15",
+    "departure_date": "2025-07-18",
     "arrival_method": "Bus from Ha Giang",
     "journey_time": "6-7 hrs",
     "activities": [
@@ -201,9 +217,9 @@
   {
     "location": "Ninh Binh",
     "country": "Vietnam",
-    "arrival_date": "2025-07-15",
+    "arrival_date": "2025-07-18",
     "nights": 5,
-    "departure_date": "2025-07-20",
+    "departure_date": "2025-07-23",
     "arrival_method": "Bus/train from Sapa",
     "journey_time": "6-7 hrs",
     "activities": [
@@ -215,27 +231,11 @@
     "lng": 105.9745
   },
   {
-    "location": "Cat Ba Island & Lan Ha Bay",
-    "country": "Vietnam",
-    "arrival_date": "2025-07-20",
-    "nights": 4,
-    "departure_date": "2025-07-24",
-    "arrival_method": "Bus/ferry from Ninh Binh",
-    "journey_time": "5-6 hrs",
-    "activities": [
-      "Explore beaches or Cat Ba National Park",
-      "1-night Lan Ha Bay cruise with kayaking and caves",
-      "Relax, hike, visit fishing villages"
-    ],
-    "lat": 20.8,
-    "lng": 107.07
-  },
-  {
     "location": "Hue",
     "country": "Vietnam",
-    "arrival_date": "2025-07-24",
+    "arrival_date": "2025-07-23",
     "nights": 4,
-    "departure_date": "2025-07-28",
+    "departure_date": "2025-07-27",
     "arrival_method": "Ferry + train or flight",
     "journey_time": "8-10 hrs",
     "activities": [
@@ -249,8 +249,8 @@
   {
     "location": "Phong Nha",
     "country": "Vietnam",
-    "arrival_date": "2025-07-28",
-    "nights": 3,
+    "arrival_date": "2025-07-27",
+    "nights": 4,
     "departure_date": "2025-07-31",
     "arrival_method": "Bus or train",
     "journey_time": "4-5 hrs",
