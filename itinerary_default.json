@@ -167,16 +167,16 @@
     "lng": 105.8542
   },
   {
-    "location": "Cat Ba Island & Lan Ha Bay",
+    "location": "Cat Ba Island & Ha Long Bay",
     "country": "Vietnam",
     "arrival_date": "2025-07-05",
     "nights": 3,
     "departure_date": "2025-07-08",
-    "arrival_method": "Bus/ferry from Ninh Binh",
+    "arrival_method": "Bus from Hanoi",
     "journey_time": "5-6 hrs",
     "activities": [
       "Explore beaches or Cat Ba National Park",
-      "1-night Lan Ha Bay cruise with kayaking and caves",
+      "3 day, 2-night Ha Long Bay cruise with kayaking and caves",
       "Relax, hike, visit fishing villages"
     ],
     "lat": 20.8,
