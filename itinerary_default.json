@@ -153,8 +153,8 @@
     "location": "Hanoi",
     "country": "Vietnam",
     "arrival_date": "2025-06-30",
-    "nights": 5,
-    "departure_date": "2025-07-05",
+    "nights": 4,
+    "departure_date": "2025-07-04",
     "arrival_method": "Flight from Vientiane",
     "journey_time": "1 hr",
     "activities": [
@@ -167,16 +167,16 @@
     "lng": 105.8542
   },
   {
-    "location": "Cat Ba Island & Ha Long Bay",
+    "location": "Cat Ba Island & Lan Ha Bay",
     "country": "Vietnam",
-    "arrival_date": "2025-07-05",
-    "nights": 3,
-    "departure_date": "2025-07-08",
-    "arrival_method": "Bus from Hanoi",
+    "arrival_date": "2025-07-04",
+    "nights": 2,
+    "departure_date": "2025-07-06",
+    "arrival_method": "Bus/ferry from Ninh Binh",
     "journey_time": "5-6 hrs",
     "activities": [
       "Explore beaches or Cat Ba National Park",
-      "3 day, 2-night Ha Long Bay cruise with kayaking and caves",
+      "1-night Lan Ha Bay cruise with kayaking and caves",
       "Relax, hike, visit fishing villages"
     ],
     "lat": 20.8,
@@ -185,9 +185,9 @@
   {
     "location": "Ha Giang Loop",
     "country": "Vietnam",
-    "arrival_date": "2025-07-08",
+    "arrival_date": "2025-07-06",
     "nights": 5,
-    "departure_date": "2025-07-13",
+    "departure_date": "2025-07-11",
     "arrival_method": "Bus",
     "journey_time": "",
     "activities": [
@@ -201,9 +201,9 @@
   {
     "location": "Sapa",
     "country": "Vietnam",
-    "arrival_date": "2025-07-13",
+    "arrival_date": "2025-07-11",
     "nights": 5,
-    "departure_date": "2025-07-18",
+    "departure_date": "2025-07-16",
     "arrival_method": "Bus from Ha Giang",
     "journey_time": "6-7 hrs",
     "activities": [
@@ -217,9 +217,9 @@
   {
     "location": "Ninh Binh",
     "country": "Vietnam",
-    "arrival_date": "2025-07-18",
+    "arrival_date": "2025-07-16",
     "nights": 5,
-    "departure_date": "2025-07-23",
+    "departure_date": "2025-07-21",
     "arrival_method": "Bus/train from Sapa",
     "journey_time": "6-7 hrs",
     "activities": [
@@ -231,27 +231,11 @@
     "lng": 105.9745
   },
   {
-    "location": "Hue",
-    "country": "Vietnam",
-    "arrival_date": "2025-07-23",
-    "nights": 4,
-    "departure_date": "2025-07-27",
-    "arrival_method": "Ferry + train or flight",
-    "journey_time": "8-10 hrs",
-    "activities": [
-      "Imperial Citadel, Thien Mu Pagoda, royal tombs",
-      "Perfume River boat trip",
-      "Dong Ba market and local cuisine"
-    ],
-    "lat": 16.4637,
-    "lng": 107.5909
-  },
-  {
     "location": "Phong Nha",
     "country": "Vietnam",
-    "arrival_date": "2025-07-27",
+    "arrival_date": "2025-07-21",
     "nights": 4,
-    "departure_date": "2025-07-31",
+    "departure_date": "2025-07-25",
     "arrival_method": "Bus or train",
     "journey_time": "4-5 hrs",
     "activities": [
@@ -263,11 +247,27 @@
     "lng": 106.2871
   },
   {
+    "location": "Hue",
+    "country": "Vietnam",
+    "arrival_date": "2025-07-25",
+    "nights": 4,
+    "departure_date": "2025-07-29",
+    "arrival_method": "Ferry + train or flight",
+    "journey_time": "8-10 hrs",
+    "activities": [
+      "Imperial Citadel, Thien Mu Pagoda, royal tombs",
+      "Perfume River boat trip",
+      "Dong Ba market and local cuisine"
+    ],
+    "lat": 16.4637,
+    "lng": 107.5909
+  },
+  {
     "location": "Hoi An / Da Nang",
     "country": "Vietnam",
-    "arrival_date": "2025-07-31",
+    "arrival_date": "2025-07-29",
     "nights": 5,
-    "departure_date": "2025-08-05",
+    "departure_date": "2025-08-03",
     "arrival_method": "Train or van",
     "journey_time": "6-7 hrs",
     "activities": [
@@ -282,9 +282,9 @@
   {
     "location": "Ho Chi Minh City & Mekong Delta",
     "country": "Vietnam",
-    "arrival_date": "2025-08-05",
+    "arrival_date": "2025-08-03",
     "nights": 6,
-    "departure_date": "2025-08-11",
+    "departure_date": "2025-08-09",
     "arrival_method": "Flight",
     "journey_time": "1.5 hrs",
     "activities": [
@@ -298,9 +298,9 @@
   {
     "location": "Phnom Penh",
     "country": "Cambodia",
-    "arrival_date": "2025-08-11",
+    "arrival_date": "2025-08-09",
     "nights": 4,
-    "departure_date": "2025-08-15",
+    "departure_date": "2025-08-13",
     "arrival_method": "Bus or flight",
     "journey_time": "6-7 hrs / 1 hr",
     "activities": [
@@ -314,9 +314,9 @@
   {
     "location": "Siem Reap & Angkor Wat",
     "country": "Cambodia",
-    "arrival_date": "2025-08-15",
+    "arrival_date": "2025-08-13",
     "nights": 7,
-    "departure_date": "2025-08-22",
+    "departure_date": "2025-08-20",
     "arrival_method": "Bus or flight",
     "journey_time": "5-6 hrs / 1 hr",
     "activities": [
@@ -331,9 +331,9 @@
   {
     "location": "Koh Ker & Preah Vihear",
     "country": "Cambodia",
-    "arrival_date": "2025-08-22",
+    "arrival_date": "2025-08-20",
     "nights": 3,
-    "departure_date": "2025-08-25",
+    "departure_date": "2025-08-23",
     "arrival_method": "Private car or minivan",
     "journey_time": "4-5 hrs",
     "activities": [
@@ -346,9 +346,9 @@
   {
     "location": "Battambang",
     "country": "Cambodia",
-    "arrival_date": "2025-08-25",
+    "arrival_date": "2025-08-23",
     "nights": 3,
-    "departure_date": "2025-08-28",
+    "departure_date": "2025-08-26",
     "arrival_method": "Bus via Siem Reap",
     "journey_time": "6-7 hrs",
     "activities": [
@@ -362,9 +362,9 @@
   {
     "location": "Siem Reap",
     "country": "Cambodia",
-    "arrival_date": "2025-08-28",
+    "arrival_date": "2025-08-26",
     "nights": 2,
-    "departure_date": "2025-08-30",
+    "departure_date": "2025-08-28",
     "arrival_method": "Bus or car",
     "journey_time": "3-4 hrs",
     "activities": [
@@ -376,9 +376,9 @@
   {
     "location": "Bangkok",
     "country": "Thailand",
-    "arrival_date": "2025-08-30",
+    "arrival_date": "2025-08-28",
     "nights": 3,
-    "departure_date": "2025-09-02",
+    "departure_date": "2025-08-31",
     "arrival_method": "Flight from Siem Reap",
     "journey_time": "1 hr",
     "activities": [
