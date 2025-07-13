@@ -186,8 +186,8 @@
     "location": "Ha Giang Loop",
     "country": "Vietnam",
     "arrival_date": "2025-07-08",
-    "nights": 5,
-    "departure_date": "2025-07-13",
+    "nights": 4,
+    "departure_date": "2025-07-12",
     "arrival_method": "Bus",
     "journey_time": "",
     "activities": [
@@ -201,9 +201,9 @@
   {
     "location": "Sapa",
     "country": "Vietnam",
-    "arrival_date": "2025-07-13",
+    "arrival_date": "2025-07-12",
     "nights": 5,
-    "departure_date": "2025-07-18",
+    "departure_date": "2025-07-17",
     "arrival_method": "Bus from Ha Giang",
     "journey_time": "6-7 hrs",
     "activities": [
@@ -217,9 +217,9 @@
   {
     "location": "Ninh Binh",
     "country": "Vietnam",
-    "arrival_date": "2025-07-18",
-    "nights": 5,
-    "departure_date": "2025-07-23",
+    "arrival_date": "2025-07-17",
+    "nights": 4,
+    "departure_date": "2025-07-21",
     "arrival_method": "Bus/train from Sapa",
     "journey_time": "6-7 hrs",
     "activities": [
@@ -233,9 +233,9 @@
   {
     "location": "Phong Nha",
     "country": "Vietnam",
-    "arrival_date": "2025-07-23",
+    "arrival_date": "2025-07-21",
     "nights": 4,
-    "departure_date": "2025-07-27",
+    "departure_date": "2025-07-25",
     "arrival_method": "Bus or train",
     "journey_time": "4-5 hrs",
     "activities": [
@@ -249,9 +249,9 @@
   {
     "location": "Hue",
     "country": "Vietnam",
-    "arrival_date": "2025-07-27",
+    "arrival_date": "2025-07-25",
     "nights": 4,
-    "departure_date": "2025-07-31",
+    "departure_date": "2025-07-29",
     "arrival_method": "Ferry + train or flight",
     "journey_time": "8-10 hrs",
     "activities": [
@@ -265,8 +265,8 @@
   {
     "location": "Hoi An / Da Nang",
     "country": "Vietnam",
-    "arrival_date": "2025-07-31",
-    "nights": 5,
+    "arrival_date": "2025-07-29",
+    "nights": 7,
     "departure_date": "2025-08-05",
     "arrival_method": "Train or van",
     "journey_time": "6-7 hrs",
