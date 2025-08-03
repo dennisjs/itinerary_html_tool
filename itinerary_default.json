@@ -360,23 +360,54 @@
     "lng": 103.2022
   },
   {
-    "location": "Siem Reap",
+    "location": "Phnom Penh",
     "country": "Cambodia",
     "arrival_date": "2025-08-28",
+    "nights": 4,
+    "departure_date": "2025-08-29",
+    "arrival_method": "Bus or flight",
+    "journey_time": "6-7 hrs / 1 hr",
+    "activities": [
+      "Staging for Kampot"
+    ],
+    "lat": 11.5564,
+    "lng": 104.9282
+  },
+  {
+    "location": "Kampot",
+    "country": "Cambodia",
+    "arrival_date": "2025-08-29",
     "nights": 2,
     "departure_date": "2025-08-30",
     "arrival_method": "Bus or car",
     "journey_time": "3-4 hrs",
     "activities": [
-      "Last-minute shopping, cafés, or spa day"
+      "Pepper farms",
+      "Bokor National Park (Bokor Hill Station)",
+      "Kampong Trach (caves and waterfalls)",
+      "Green Cathedral (Kampot's famous old church)"
     ],
-    "lat": 13.3618,
-    "lng": 103.8606
+    "lat": 10.605,
+    "lng": 104.180
+  },
+  {
+    "location": "Phnom Penh",
+    "country": "Cambodia",
+    "arrival_date": "2025-08-30",
+    "nights": 4,
+    "departure_date": "2025-09-01",
+    "arrival_method": "Bus or car",
+    "journey_time": "3-4 hrs",
+    "activities": [
+      "Staging for flight to Bangkok"
+    ],
+    "lat": 11.5564,
+    "lng": 104.9282
   },
   {
     "location": "Bangkok",
     "country": "Thailand",
-    "arrival_date": "2025-08-30",
+    "arrival_date": "2025-09-01",
     "nights": 3,
     "departure_date": "2025-09-02",
     "arrival_method": "Flight from Siem Reap",
