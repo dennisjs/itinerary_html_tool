@@ -283,8 +283,8 @@
     "location": "Ho Chi Minh City & Mekong Delta",
     "country": "Vietnam",
     "arrival_date": "2025-08-05",
-    "nights": 3,
-    "departure_date": "2025-08-08",
+    "nights": 6,
+    "departure_date": "2025-08-11",
     "arrival_method": "Flight",
     "journey_time": "1.5 hrs",
     "activities": [
@@ -298,9 +298,9 @@
   {
     "location": "Phnom Penh",
     "country": "Cambodia",
-    "arrival_date": "2025-08-08",
+    "arrival_date": "2025-08-11",
     "nights": 4,
-    "departure_date": "2025-08-12",
+    "departure_date": "2025-08-15",
     "arrival_method": "Bus or flight",
     "journey_time": "6-7 hrs / 1 hr",
     "activities": [
@@ -314,9 +314,9 @@
   {
     "location": "Siem Reap & Angkor Wat",
     "country": "Cambodia",
-    "arrival_date": "2025-08-12",
-    "nights": 5,
-    "departure_date": "2025-08-17",
+    "arrival_date": "2025-08-15",
+    "nights": 7,
+    "departure_date": "2025-08-22",
     "arrival_method": "Bus or flight",
     "journey_time": "5-6 hrs / 1 hr",
     "activities": [
@@ -331,9 +331,9 @@
   {
     "location": "Koh Ker & Preah Vihear",
     "country": "Cambodia",
-    "arrival_date": "2025-08-17",
-    "nights": 2,
-    "departure_date": "2025-08-19",
+    "arrival_date": "2025-08-22",
+    "nights": 3,
+    "departure_date": "2025-08-25",
     "arrival_method": "Private car or minivan",
     "journey_time": "4-5 hrs",
     "activities": [
@@ -346,9 +346,9 @@
   {
     "location": "Battambang",
     "country": "Cambodia",
-    "arrival_date": "2025-08-19",
+    "arrival_date": "2025-08-25",
     "nights": 3,
-    "departure_date": "2025-08-22",
+    "departure_date": "2025-08-28",
     "arrival_method": "Bus via Siem Reap",
     "journey_time": "6-7 hrs",
     "activities": [
@@ -360,54 +360,23 @@
     "lng": 103.2022
   },
   {
-    "location": "Phnom Penh",
+    "location": "Siem Reap",
     "country": "Cambodia",
-    "arrival_date": "2025-08-22",
-    "nights": 4,
-    "departure_date": "2025-08-26",
-    "arrival_method": "Bus or flight",
-    "journey_time": "6-7 hrs / 1 hr",
-    "activities": [
-      "Staging for Kampot"
-    ],
-    "lat": 11.5564,
-    "lng": 104.9282
-  },
-  {
-    "location": "Kampot",
-    "country": "Cambodia",
-    "arrival_date": "2025-08-26",
-    "nights": 4,
+    "arrival_date": "2025-08-28",
+    "nights": 2,
     "departure_date": "2025-08-30",
     "arrival_method": "Bus or car",
     "journey_time": "3-4 hrs",
     "activities": [
-      "Pepper farms",
-      "Bokor National Park (Bokor Hill Station)",
-      "Kampong Trach (caves and waterfalls)",
-      "Green Cathedral (Kampot's famous old church)"
+      "Last-minute shopping, cafés, or spa day"
     ],
-    "lat": 10.605,
-    "lng": 104.180
-  },
-  {
-    "location": "Phnom Penh",
-    "country": "Cambodia",
-    "arrival_date": "2025-08-30",
-    "nights": 4,
-    "departure_date": "2025-09-01",
-    "arrival_method": "Bus or car",
-    "journey_time": "3-4 hrs",
-    "activities": [
-      "Staging for flight to Bangkok"
-    ],
-    "lat": 11.5564,
-    "lng": 104.9282
+    "lat": 13.3618,
+    "lng": 103.8606
   },
   {
     "location": "Bangkok",
     "country": "Thailand",
-    "arrival_date": "2025-09-01",
+    "arrival_date": "2025-08-30",
     "nights": 3,
     "departure_date": "2025-09-02",
     "arrival_method": "Flight from Siem Reap",
