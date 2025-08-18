@@ -329,26 +329,11 @@
     "lng": 103.8448
   },
   {
-    "location": "Koh Ker & Preah Vihear",
+    "location": "Battambang",
     "country": "Cambodia",
     "arrival_date": "2025-08-18",
     "nights": 3,
     "departure_date": "2025-08-21",
-    "arrival_method": "Private car or minivan",
-    "journey_time": "4-5 hrs",
-    "activities": [
-      "Visit the remote stepped pyramid at Koh Ker",
-      "Explore the dramatic hilltop Preah Vihear Temple"
-    ],
-    "lat": 13.7881,
-    "lng": 104.973
-  },
-  {
-    "location": "Battambang",
-    "country": "Cambodia",
-    "arrival_date": "2025-08-21",
-    "nights": 3,
-    "departure_date": "2025-08-24",
     "arrival_method": "Bus via Siem Reap",
     "journey_time": "6-7 hrs",
     "activities": [
@@ -360,27 +345,13 @@
     "lng": 103.2022
   },
   {
-    "location": "Phnom Penh",
-    "country": "Cambodia",
-    "arrival_date": "2025-08-24",
-    "nights": 1,
-    "departure_date": "2025-08-25",
-    "arrival_method": "Bus or flight",
-    "journey_time": "6-7 hrs / 1 hr",
-    "activities": [
-      "Staging for Kampot"
-    ],
-    "lat": 11.5564,
-    "lng": 104.9282
-  },
-  {
     "location": "Kampot",
     "country": "Cambodia",
-    "arrival_date": "2025-08-25",
+    "arrival_date": "2025-08-21",
     "nights": 4,
-    "departure_date": "2025-08-29",
-    "arrival_method": "Bus or car",
-    "journey_time": "3-4 hrs",
+    "departure_date": "2025-08-25",
+    "arrival_method": "Van",
+    "journey_time": "9 hrs",
     "activities": [
       "Pepper farms",
       "Bokor National Park (Bokor Hill Station)",
@@ -389,6 +360,20 @@
     ],
     "lat": 10.605,
     "lng": 104.180
+  },
+  {
+    "location": "Koh Rong",
+    "country": "Cambodia",
+    "arrival_date": "2025-08-25",
+    "nights": 3,
+    "departure_date": "2025-08-29",
+    "arrival_method": "Bus then Ferry from Sihanoukville",
+    "journey_time": "4-5 hrs",
+    "activities": [
+      "Island Life"
+    ],
+    "lat": 10.716,
+    "lng": 103.29
   },
   {
     "location": "Phnom Penh",
